@@ -8,4 +8,5 @@ docker run --rm \
   -e "OS_USER_DOMAIN_NAME=$OS_USER_DOMAIN_NAME" \
   -e "OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME" \
   -e "OS_IDENTITY_API_VERSION=$OS_IDENTITY_API_VERSION" \
-  celebdor/openstack:ocata "$@"
+  -v "${HOME}:${HOME}" \
+  celebdor/openstack:latest "$(id -un)" "$(id -u)" "${HOME}" "$(pwd)" "$@"
